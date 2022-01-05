@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVCVidly.Models;
+using MVCVidly.ViewModels;
 
 namespace MVCVidly.Controllers
 {
@@ -13,7 +14,19 @@ namespace MVCVidly.Controllers
         public ActionResult Random()
         {
             var movie = new Movie() { Name = "Name!" };
-            return View(movie);
+            var customers = new List<Customer>
+            {
+                new Customer {Name = "Customer 1"},
+                new Customer {Name = "Customer 2"}
+            };
+
+            var viewModel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customers = customers
+            };
+
+            return View(viewModel);
         }
 
         // Parameter directly embeded into the URL
