@@ -38,6 +38,8 @@ namespace MVCVidly.Controllers
             return Content(String.Format("pageIndex = {0} & sortBy = {1}", pageIndex, sortBy));
         }
 
+        // Adding multiple constraints like regex, range, min, max...
+        [Route("movies/released/{year:regex(\\d{4})}/{month:regex(\\{2}):range(1, 12)}")]
         public ActionResult ByReleaseDate(int year, int month)
         {
             return Content(year + "/" + month);
