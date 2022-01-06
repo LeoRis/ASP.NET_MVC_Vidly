@@ -10,7 +10,7 @@ namespace MVCVidly.Controllers
     public class CustomersController : Controller
     {
         // GET: Customers
-        public ActionResult Index()
+        public ViewResult Index()
         {
             var customers = GetCustomers();
             return View(customers);
@@ -28,7 +28,7 @@ namespace MVCVidly.Controllers
             return View(customer);
         }
 
-        public IEnumerable<Customer> GetCustomers()
+        private IEnumerable<Customer> GetCustomers()
         {
             return new List<Customer>
             {

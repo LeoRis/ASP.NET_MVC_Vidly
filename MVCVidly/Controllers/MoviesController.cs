@@ -36,8 +36,8 @@ namespace MVCVidly.Controllers
         }
 
         // movies
-        public ActionResult Index(int? pageIndex, string sortBy)
-        {
+        //public ActionResult Index(int? pageIndex, string sortBy)
+        //{
             //if (!pageIndex.HasValue)
             //{
             //    pageIndex = 1;
@@ -49,9 +49,11 @@ namespace MVCVidly.Controllers
             //}
 
             //return Content(String.Format("pageIndex = {0} & sortBy = {1}", pageIndex, sortBy));
+        //}
 
+        public ViewResult Index()
+        {
             var movies = GetMovies();
-
             return View(movies);
         }
 
@@ -74,7 +76,7 @@ namespace MVCVidly.Controllers
             return View(movie);
         }
 
-        public IEnumerable<Movie> GetMovies()
+        private IEnumerable<Movie> GetMovies()
         {
             return new List<Movie>
             {
