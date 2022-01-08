@@ -68,7 +68,7 @@ namespace MVCVidly.Controllers
         {
             var movie = GetMovies().SingleOrDefault(m => m.Id == id);
 
-            if(movie == null)
+            if (movie == null)
             {
                 return HttpNotFound();
             }

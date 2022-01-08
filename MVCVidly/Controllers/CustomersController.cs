@@ -20,7 +20,7 @@ namespace MVCVidly.Controllers
         {
             var customer = GetCustomers().SingleOrDefault(c => c.Id == id);
 
-            if(customer == null)
+            if (customer == null)
             {
                 return HttpNotFound();
             }
