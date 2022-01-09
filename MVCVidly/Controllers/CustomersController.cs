@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVCVidly.Models;
+using MVCVidly.ViewModels;
 
 namespace MVCVidly.Controllers
 {
@@ -23,7 +24,12 @@ namespace MVCVidly.Controllers
 
         public ActionResult New()
         {
-            return View();
+            var membershipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new NewCustomerViewModel
+            {
+                MembershipTypes = membershipTypes
+            };
+            return View(viewModel);
         }
 
         // GET: Customers
