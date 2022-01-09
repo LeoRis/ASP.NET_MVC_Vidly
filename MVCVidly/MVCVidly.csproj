@@ -204,9 +204,30 @@
     <Compile Include="Migrations\202201082253417_SetNameOfMembershipTypes.Designer.cs">
       <DependentUpon>202201082253417_SetNameOfMembershipTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201090935510_AddingBirthdayColumnToCustomers.cs" />
+    <Compile Include="Migrations\202201090935510_AddingBirthdayColumnToCustomers.Designer.cs">
+      <DependentUpon>202201090935510_AddingBirthdayColumnToCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201091000111_AddingNewBirthday.cs" />
+    <Compile Include="Migrations\202201091000111_AddingNewBirthday.Designer.cs">
+      <DependentUpon>202201091000111_AddingNewBirthday.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201091002108_TeslaBirthday.cs" />
+    <Compile Include="Migrations\202201091002108_TeslaBirthday.Designer.cs">
+      <DependentUpon>202201091002108_TeslaBirthday.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201091044245_AddingGenreToTheModel.cs" />
+    <Compile Include="Migrations\202201091044245_AddingGenreToTheModel.Designer.cs">
+      <DependentUpon>202201091044245_AddingGenreToTheModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201091046341_AddingNewGenres.cs" />
+    <Compile Include="Migrations\202201091046341_AddingNewGenres.Designer.cs">
+      <DependentUpon>202201091046341_AddingNewGenres.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -316,6 +337,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201082253417_SetNameOfMembershipTypes.resx">
       <DependentUpon>202201082253417_SetNameOfMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201090935510_AddingBirthdayColumnToCustomers.resx">
+      <DependentUpon>202201090935510_AddingBirthdayColumnToCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201091000111_AddingNewBirthday.resx">
+      <DependentUpon>202201091000111_AddingNewBirthday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201091002108_TeslaBirthday.resx">
+      <DependentUpon>202201091002108_TeslaBirthday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201091044245_AddingGenreToTheModel.resx">
+      <DependentUpon>202201091044245_AddingGenreToTheModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201091046341_AddingNewGenres.resx">
+      <DependentUpon>202201091046341_AddingNewGenres.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
