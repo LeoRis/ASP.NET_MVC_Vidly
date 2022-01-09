@@ -88,14 +88,5 @@ namespace MVCVidly.Controllers
 
             return View(movie);
         }
-
-        private IEnumerable<Movie> GetMovies()
-        {
-            return new List<Movie>
-            {
-                new Movie { Id = 1, Name = "Matrix"},
-                new Movie { Id = 2, Name = "Entourage"}
-            };
-        }
     }
 }
