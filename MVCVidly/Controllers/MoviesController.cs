@@ -70,7 +70,7 @@ namespace MVCVidly.Controllers
                 Genres = _context.Genres.ToList()
             };
 
-            return Content("id = " + id);
+            return View("MovieForm", viewModel);
         }
 
         [HttpPost]
