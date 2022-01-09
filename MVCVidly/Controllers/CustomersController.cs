@@ -43,9 +43,14 @@ namespace MVCVidly.Controllers
             {
                 var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
 
-                TryUpdateModel(customerInDb);
+                customerInDb.Name = customer.Name;
+                customerInDb.Birthday = customer.Birthday;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
             }
+
             _context.SaveChanges();
+
             return RedirectToAction("Index", "Customers");
         }
 
