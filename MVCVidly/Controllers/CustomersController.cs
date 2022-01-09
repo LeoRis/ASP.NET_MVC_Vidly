@@ -20,6 +20,12 @@ namespace MVCVidly.Controllers
         {
             _context.Dispose();
         }
+
+        public ActionResult New()
+        {
+            return View();
+        }
+
         // GET: Customers
         public ViewResult Index()
         {
