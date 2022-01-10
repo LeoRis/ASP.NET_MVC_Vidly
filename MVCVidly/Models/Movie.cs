@@ -25,6 +25,6 @@ namespace MVCVidly.Models
 
         [Display(Name = "Number in Stock")]
         [Range(1, 20)]
-        public int NumberInStock { get; set; }
+        public byte NumberInStock { get; set; }
     }
 }

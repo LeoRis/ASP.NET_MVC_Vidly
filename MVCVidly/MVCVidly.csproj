@@ -224,6 +224,10 @@
     <Compile Include="Migrations\202201091046341_AddingNewGenres.Designer.cs">
       <DependentUpon>202201091046341_AddingNewGenres.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201101430586_ChangeReturnTypeOfNumbersInStockFromIntToByte.cs" />
+    <Compile Include="Migrations\202201101430586_ChangeReturnTypeOfNumbersInStockFromIntToByte.Designer.cs">
+      <DependentUpon>202201101430586_ChangeReturnTypeOfNumbersInStockFromIntToByte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -357,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201091046341_AddingNewGenres.resx">
       <DependentUpon>202201091046341_AddingNewGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201101430586_ChangeReturnTypeOfNumbersInStockFromIntToByte.resx">
+      <DependentUpon>202201101430586_ChangeReturnTypeOfNumbersInStockFromIntToByte.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
