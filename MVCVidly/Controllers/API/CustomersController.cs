@@ -74,5 +74,20 @@ namespace MVCVidly.Controllers.API
 
             _context.SaveChanges();
         }
+
+        // DELETE /api/customers/1
+        [HttpDelete]
+        public void DeleteCustomer(int id)
+        {
+            var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
+
+            if (customerInDb == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+
+            _context.Customers.Remove(customerInDb);
+            _context.SaveChanges();
+        }
     }
 }
