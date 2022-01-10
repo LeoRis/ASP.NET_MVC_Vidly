@@ -30,25 +30,26 @@ namespace MVCVidly.Controllers.API
         }
 
         // GET /api/customers/1
-        public CustomerDto GetCustomer(int id)
+        public IHttpActionResult GetCustomer(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
 
             if(customer == null)
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
             }
 
-            return _mapper.Map<Customer, CustomerDto>(customer);
+            return Ok(_mapper.Map<Customer, CustomerDto>(customer));
         }
 
         // POST /api/customers
+        // In WEB APIs prefer to use IHttpActionResult as a return type to our actions.
         [HttpPost]
-        public CustomerDto CreateCustomer(CustomerDto customerDto)
+        public IHttpActionResult CreateCustomer(CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
             }
 
             var customer = _mapper.Map<CustomerDto, Customer>(customerDto);
@@ -57,7 +58,7 @@ namespace MVCVidly.Controllers.API
 
             customerDto.Id = customer.Id;
 
-            return customerDto;
+            return Created(new Uri(Request.RequestUri + "/" + customer.Id), customerDto);
         }
 
         // PUT /api/customers/1
