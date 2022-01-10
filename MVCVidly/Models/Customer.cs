@@ -11,6 +11,7 @@ namespace MVCVidly.Models
         public int Id { get; set; }
 
         [Required]
+        //[Required(ErrorMessage = "Please enter customer's name.")] - To override the default validation error message.
         [StringLength(255)]
         public string Name { get; set; }
         public bool IsSubscribedToNewsletter { get; set; }
@@ -20,6 +21,7 @@ namespace MVCVidly.Models
         public byte MembershipTypeId { get; set; }
 
         [Display(Name = "Date of Birth")]
+        [Min18YearsIfAMember]
         public DateTime? Birthday { get; set; }
 
     }
