@@ -49,5 +49,30 @@ namespace MVCVidly.Controllers.API
 
             return customer;
         }
+
+        // PUT /api/customers/1
+        [HttpPut]
+        public void UpdateCustomer(int id, Customer customer)
+        {
+            if (!ModelState.IsValid)
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+
+            var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
+
+            if(customerInDb == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+
+            // If all good - we need to update the customer.
+            customerInDb.Name = customer.Name;
+            customerInDb.Birthday = customer.Birthday;
+            customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+            customerInDb.MembershipTypeId = customer.MembershipTypeId;
+
+            _context.SaveChanges();
+        }
     }
 }
