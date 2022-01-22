@@ -22,6 +22,7 @@ namespace MVCVidly.Controllers.API
             var config = new MapperConfiguration(cnfg => cnfg.AddProfile<MappingProfile>());
             _mapper = new Mapper(config);
         }
+        
         // GET: api/movies
         public IEnumerable<MovieDto> GetMovies()
         {
@@ -39,6 +40,24 @@ namespace MVCVidly.Controllers.API
             }
 
             return Ok(_mapper.Map<Movie, MovieDto>(movie));
+        }
+
+        // POST: api/movies
+        [HttpPost]
+        public IHttpActionResult CreateMovie(MovieDto movieDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            var movie = _mapper.Map<MovieDto, Movie>(movieDto);
+            _context.Movies.Add(movie);
+            _context.SaveChanges();
+
+            movieDto.Id = movie.Id;
+
+            return Created(new Uri(Request.RequestUri + "/" + movie.Id), movieDto);
         }
     }
 }
