@@ -66,7 +66,7 @@ namespace MVCVidly.Controllers.API
         public IHttpActionResult UpdateCustomer(int id, CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
-            {
+            { 
                 return BadRequest();
             }
 
