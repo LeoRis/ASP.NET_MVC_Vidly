@@ -12,7 +12,7 @@ namespace MVCVidly.App_Start
     {
         public MappingProfile()
         {
-            // CreateMap is a generic method that takes 2 parameters: source and target
+            // CreateMap is a generic method from AutoMapper that takes 2 parameters: source and target
             CreateMap<Customer, CustomerDto>();
             CreateMap<CustomerDto, Customer>();
 
