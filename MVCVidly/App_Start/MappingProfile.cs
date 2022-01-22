@@ -15,6 +15,8 @@ namespace MVCVidly.App_Start
             // CreateMap is a generic method from AutoMapper that takes 2 parameters: source and target
             CreateMap<Customer, CustomerDto>();
             CreateMap<CustomerDto, Customer>();
+            CreateMap<Movie, MovieDto>();
+            CreateMap<MovieDto, Movie>();
 
         }
     }

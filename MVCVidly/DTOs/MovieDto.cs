@@ -7,7 +7,8 @@ using System.ComponentModel.DataAnnotations;
 namespace MVCVidly.DTOs
 {
     public class MovieDto
-    {        public int Id { get; set; }
+    {        
+        public int Id { get; set; }
 
         [Required]
         [StringLength(255)]

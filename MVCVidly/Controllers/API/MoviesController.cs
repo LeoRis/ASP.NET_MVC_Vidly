@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MVCVidly.App_Start;
+using MVCVidly.DTOs;
 using MVCVidly.Models;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,20 @@ namespace MVCVidly.Controllers.API
         // GET: api/movies
         public IEnumerable<MovieDto> GetMovies()
         {
-            return _context.Movies.ToList().Select(_mapper.Map<>)
+            return _context.Movies.ToList().Select(_mapper.Map<Movie, MovieDto>);
+        }
+
+        // GET: api/movies/1
+        public IHttpActionResult GetMovie(int id)
+        {
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+
+            if(movie == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(_mapper.Map<Movie, MovieDto>(movie));
         }
     }
 }
