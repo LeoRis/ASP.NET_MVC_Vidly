@@ -77,5 +77,22 @@ namespace MVCVidly.Controllers.API
 
             return Ok();
         }
+
+        // DELETE: api/movies/1
+        [HttpDelete]
+        public IHttpActionResult DeleteMovie(int id)
+        {
+            var movieInDb = _context.Movies.SingleOrDefault(m => m.Id == id);
+
+            if(movieInDb == null)
+            {
+                return NotFound();
+            }
+
+            _context.Movies.Remove(movieInDb);
+            _context.SaveChanges();
+
+            return Ok();
+        }
     }
 }
