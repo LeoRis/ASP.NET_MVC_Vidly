@@ -59,5 +59,23 @@ namespace MVCVidly.Controllers.API
 
             return Created(new Uri(Request.RequestUri + "/" + movie.Id), movieDto);
         }
+
+        // PUT: api/movies/1
+        [HttpPut]
+        public IHttpActionResult UpdateMovie(int id, MovieDto movieDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            var movieInDb = _context.Movies.SingleOrDefault(c => c.Id == id);
+
+            _mapper.Map(movieDto, movieInDb);
+
+            _context.SaveChanges();
+
+            return Ok();
+        }
     }
 }
