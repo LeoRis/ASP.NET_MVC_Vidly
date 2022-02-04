@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Data.Entity;
 using System.Net.Http;
 using System.Web.Http;
 using MVCVidly.Models;
@@ -24,9 +25,14 @@ namespace MVCVidly.Controllers.API
         }
 
         // GET /api/customers
-        public IEnumerable<CustomerDto> GetCustomers()
+        public IHttpActionResult GetCustomers()
         {
-            return _context.Customers.ToList().Select(_mapper.Map<Customer, CustomerDto>);
+            var customerDtos = _context.Customers
+                .Include(c => c.MembershipType)
+                .ToList()
+                .Select(_mapper.Map<Customer, CustomerDto>);
+
+            return Ok(customerDtos);
         }
 
         // GET /api/customers/1
