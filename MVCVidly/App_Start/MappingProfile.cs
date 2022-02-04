@@ -15,15 +15,15 @@ namespace MVCVidly.App_Start
             // CreateMap is a generic method from AutoMapper that takes 2 parameters: source and target
 
             // Domain to DTO
-            CreateMap<Customer, CustomerDto>()
-                .ForMember(c => c.Id, opt => opt.Ignore());
-            CreateMap<Movie, MovieDto>()
-                .ForMember(m => m.Id, opt => opt.Ignore());
+            CreateMap<Customer, CustomerDto>();
+            CreateMap<Movie, MovieDto>();
             CreateMap<MembershipType, MembershipTypeDto>();
 
             // DTO to domain
-            CreateMap<CustomerDto, Customer>();
-            CreateMap<MovieDto, Movie>();
+            CreateMap<CustomerDto, Customer>()
+                .ForMember(c => c.Id, opt => opt.Ignore());
+            CreateMap<MovieDto, Movie>()
+                .ForMember(m => m.Id, opt => opt.Ignore());
 
         }
     }
