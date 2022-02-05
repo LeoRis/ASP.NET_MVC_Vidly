@@ -17,6 +17,7 @@ namespace MVCVidly.DTOs
         [Required]
         [Display(Name = "Genre")]
         public byte GenreId { get; set; }
+        public GenreDto Genre { get; set; }
 
         [Display(Name = "Release Date")]
         public DateTime ReleaseDate { get; set; }
