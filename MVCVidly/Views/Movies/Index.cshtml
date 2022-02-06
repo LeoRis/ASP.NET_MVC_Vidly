@@ -7,16 +7,17 @@
 
 <h2>Movies</h2>
 
-<table class="table table-bordered table-hover">
+<table id="movies" class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>Movie</th>
             <th>Genre</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody></tbody>
 </table>
-}
+
 
 @section scripts
 {
@@ -31,7 +32,7 @@
                     {
                         data: "name",
                         render: function (data, type, movie) {
-                            return "<a href='/movies/edit/'" + movie.id + "'>" + data + "</a>"
+                            return "<a href='/movies/edit/" + movie.id + "'>" + data + "</a>"
                         }
                     },
                     {
