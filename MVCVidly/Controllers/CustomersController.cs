@@ -66,12 +66,24 @@ namespace MVCVidly.Controllers
             return RedirectToAction("Index", "Customers");
         }
 
+        public RedirectResult Test()
+        {
+            try
+            {
+                return Redirect("Index");
+            }
+            finally
+            {
+                ViewBag.Message = Response.StatusCode;
+            }
+        }
+
         // GET: Customers
         public ViewResult Index()
         {
             return View();
         }
-        
+
         public ActionResult Details(int id)
         {
             var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
@@ -88,7 +100,7 @@ namespace MVCVidly.Controllers
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
 
-            if(customer == null)
+            if (customer == null)
             {
                 return HttpNotFound();
             }
