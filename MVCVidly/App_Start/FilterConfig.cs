@@ -8,6 +8,9 @@ namespace MVCVidly
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+
+            // Very restrictive filter - you can't get pass the home page.
+            filters.Add(new AuthorizeAttribute());
         }
     }
 }
