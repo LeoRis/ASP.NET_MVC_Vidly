@@ -23,6 +23,7 @@ namespace MVCVidly.Controllers
             _context.Dispose();
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ViewResult New()
         {
             var genres = _context.Genres.ToList();
@@ -59,7 +60,7 @@ namespace MVCVidly.Controllers
         {
             var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
 
-            if(movie == null)
+            if (movie == null)
             {
                 return HttpNotFound();
             }
@@ -85,7 +86,7 @@ namespace MVCVidly.Controllers
 
                 return View("MovieForm", viewModel);
             }
-            if(movie.Id == 0)
+            if (movie.Id == 0)
             {
                 movie.DateAdded = DateTime.Now;
                 _context.Movies.Add(movie);
@@ -106,7 +107,14 @@ namespace MVCVidly.Controllers
 
         public ViewResult Index()
         {
-            return View();
+            if (User.IsInRole(RoleName.CanManageMovies))
+            {
+                return View("List");
+            }
+            else
+            {
+                return View("ReadOnlyList");
+            }
         }
 
         // Adding multiple constraints like regex, range, min, max...
