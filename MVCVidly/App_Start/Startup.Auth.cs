@@ -55,8 +55,8 @@ namespace MVCVidly
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "334212805316564",
-               appSecret: "4c98f3cca30297041a585814c450e1ae");
+               appId: "",
+               appSecret: "");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
